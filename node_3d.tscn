@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bcgeemy5npof7"]
+
+[ext_resource type="Script" uid="uid://v0fw028rfadu" path="res://node_3d.gd" id="1_a202f"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_noarx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a0tk4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
+
+[node name="Node3D" type="Node3D" unique_id=1786460376]
+script = ExtResource("1_a202f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=648386175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8775315, 0)
+mesh = SubResource("CapsuleMesh_noarx")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="MeshInstance3D" unique_id=1741853654]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/CharacterBody3D" unique_id=1108838624]
+shape = SubResource("CapsuleShape3D_a0tk4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=152854865]
+transform = Transform3D(21.568567, 0, 0, 0, 1, 0, 0, 0, 23.187761, 0, 0, 0)
+mesh = SubResource("BoxMesh_4xowi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2" unique_id=1624225086]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D" unique_id=874420920]
+shape = SubResource("BoxShape3D_a202f")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2138429855]
+transform = Transform3D(-0.06975648, 0, 0.9975641, 0, 1, 0, -0.9975641, 0, -0.06975648, 7.7750325, 2.2997527, 0)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=1694466851]
+doppler_tracking = 1
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1302306474]
+transform = Transform3D(1, 0, 0, 0, 0.121505596, 0.9925907, 0, -0.9925907, 0.121505596, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=277041653]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

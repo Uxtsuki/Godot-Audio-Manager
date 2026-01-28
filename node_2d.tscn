@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bib242af2nr8f"]
+
+[ext_resource type="Script" uid="uid://5cybax8an3e0" path="res://node_2d.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://bjp7fohr3bsme" path="res://icon.svg" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=486289583]
+script = ExtResource("1_0e48y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1544589157]
+position = Vector2(1253, 200)
+texture = ExtResource("1_wtcfe")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=979792224]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=730062842]
+current = true
+
+[node name="Timer" type="Timer" parent="." unique_id=889870801]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
