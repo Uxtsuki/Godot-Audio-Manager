@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://l0dy75mkl85w"]
+
+[ext_resource type="Script" uid="uid://ohgovc7hmnra" path="res://Audio Manager/Components/h_box_container_input.gd" id="1_42hin"]
+
+[node name="HBoxContainerInput" type="HBoxContainer" unique_id=407158562]
+custom_minimum_size = Vector2(500, 25)
+offset_right = 500.0
+offset_bottom = 25.0
+theme_override_constants/separation = 0
+script = ExtResource("1_42hin")
+
+[node name="RichTextLabelName" type="RichTextLabel" parent="." unique_id=1490512248]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Audio Input"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=477618890]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

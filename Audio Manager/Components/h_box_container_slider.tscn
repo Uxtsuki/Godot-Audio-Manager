@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d1vqc6a8c0a60"]
+
+[ext_resource type="Script" uid="uid://bk5mmwxu76hgk" path="res://Audio Manager/Components/h_box_container_slider.gd" id="1_28a53"]
+
+[node name="HBoxContainerSlider" type="HBoxContainer" unique_id=407158562]
+custom_minimum_size = Vector2(500, 25)
+offset_right = 500.0
+offset_bottom = 25.0
+theme_override_constants/separation = 0
+script = ExtResource("1_28a53")
+
+[node name="RichTextLabelName" type="RichTextLabel" parent="." unique_id=1490512248]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabelValue" type="RichTextLabel" parent="." unique_id=1648178663]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1155044302]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 2
+value = 100.0
+
+[connection signal="drag_ended" from="HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
