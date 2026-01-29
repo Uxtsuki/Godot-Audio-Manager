@@ -15,6 +15,7 @@ var _music_player : AudioStreamPlayer = AudioStreamPlayer.new()
 	preload("res://audio.wav")
 ]
 @export var _random_music : bool = false
+@export var _loop_music : bool = false
 @export var _music_index : int = 0
 
 var _sound_players : Array[Array] = []
@@ -110,10 +111,11 @@ func _play_music(_index : int = 0) -> void:
 	_music_player.play()
 
 func _music_finished() -> void:
-	if _random_music:
-		_music_index = randi_range(0, _musics.size() - 1)
-	else:
-		_music_index = wrapi(_music_index + 1, 0, _musics.size() - 1)
+	if !_loop_music:
+		if _random_music:
+			_music_index = randi_range(0, _musics.size() - 1)
+		else:
+			_music_index = wrapi(_music_index + 1, 0, _musics.size() - 1)
 	_play_music(_music_index)
 	
 func _play_sound(_sound_name : String, _players : Array, _priority : bool = true) -> Variant:
